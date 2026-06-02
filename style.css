@@ -51,3 +51,434 @@ a {
 ul {
     list-style: none; /* Elimina las viñetas por defecto de las listas */
 }
+
+/* =========================================
+   4. CABECERA Y NAVEGACIÓN (Header)
+   ========================================= */
+.header {
+    position: fixed; /* Mantiene la barra superior fija al hacer scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-fondo-principal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil para separar del contenido */
+    z-index: 1000; /* Asegura que el menú siempre esté por encima del resto */
+}
+
+.header__logo {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-acento);
+}
+
+.header__menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-texto-principal);
+    cursor: pointer;
+}
+
+/* Diseño del menú desplegable para móviles */
+.header__nav {
+    display: none; /* Oculto por defecto en móviles. Lo activaremos luego con JS */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-fondo-principal);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Esta clase será añadida dinámicamente con JavaScript al hacer clic en el botón */
+.header__nav--active {
+    display: block;
+}
+
+.header__nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.header__nav-item {
+    margin: 0.8rem 0;
+}
+
+.header__nav-link {
+    font-weight: 600;
+    transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.header__nav-link:hover {
+    color: var(--color-acento);
+}
+
+/* =========================================
+   5. SECCIÓN: INICIO (Hero)
+   ========================================= */
+.hero {
+    height: 100vh; /* Ocupa el 100% del alto de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    margin-top: 60px; /* Compensa el espacio que ocupa el header fijo */
+    position: relative;
+}
+
+.hero__title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+    font-size: 1.1rem;
+    color: var(--color-texto-alterno);
+    max-width: 600px; /* Evita que el texto sea demasiado ancho y difícil de leer */
+    margin-bottom: 2rem;
+}
+
+.hero__cta {
+    background-color: var(--color-acento);
+    color: #FFFFFF; /* Forzamos blanco para garantizar contraste sobre el verde esmeralda */
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__cta:hover {
+    transform: translateY(-3px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(41, 199, 172, 0.4); /* Resplandor del color de acento */
+}
+
+/* Indicador de scroll animado */
+.hero__scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 2rem;
+    color: var(--color-acento);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+}
+
+/* =========================================
+   MEDIA QUERIES (Escritorio >= 768px)
+   ========================================= */
+@media screen and (min-width: 768px) {
+    /* Header: Pasamos de menú hamburguesa a menú horizontal */
+    .header__menu-btn {
+        display: none; 
+    }
+
+    .header__nav {
+        display: block; 
+        position: static;
+        width: auto;
+        box-shadow: none;
+    }
+
+    .header__nav-list {
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .header__nav-item {
+        margin: 0 1rem;
+    }
+
+    /* Hero: Aumentamos el tamaño de las fuentes para aprovechar el espacio */
+    .hero__title {
+        font-size: 4rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1.3rem;
+    }
+
+    /* Proyectos: Pasamos a una cuadrícula (Grid) de múltiples columnas */
+    .projects__grid {
+        /* Crea columnas automáticamente según el espacio disponible. Mínimo 300px por tarjeta */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    }
+
+    /* Sobre Mí: Implementación de la corrección estructural a 2 columnas */
+    .about__container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .about__profile {
+        flex: 0 0 35%; /* La columna de la foto ocupa el 35% del ancho */
+        position: sticky; /* Opcional: Mantiene la foto fija mientras se lee el texto */
+        top: 100px;
+    }
+
+    .about__info {
+        flex: 0 0 60%; /* La columna de texto ocupa el 60% del ancho */
+    }
+}
+
+/* =========================================
+   6. ESTILOS GENERALES DE SECCIONES
+   ========================================= */
+.projects, .about, .contact {
+    padding: 5rem 2rem; /* Espaciado interno consistente para todas las secciones */
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido en pantallas gigantes */
+}
+
+.projects__title, .about__title, .contact__title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+/* Línea decorativa debajo de los títulos */
+.projects__title::after, .about__title::after, .contact__title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-acento);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* =========================================
+   7. SECCIÓN: PROYECTOS
+   ========================================= */
+.projects__grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Móvil: 1 columna */
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--color-fondo-secundario);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.project-card__image-placeholder {
+    height: 200px;
+    background-color: var(--color-texto-principal);
+    color: var(--color-fondo-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--fuente-titulos);
+}
+
+.project-card__content {
+    padding: 1.5rem;
+}
+
+.project-card__title {
+    margin-bottom: 0.5rem;
+}
+
+.project-card__description {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.project-card__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-card__tag {
+    font-size: 0.8rem;
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-alterno);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-texto-alterno);
+    font-weight: 600;
+}
+
+.project-card__links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-card__link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-acento);
+}
+
+.project-card__link:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   8. SECCIÓN: SOBRE MÍ
+   ========================================= */
+.about__container {
+    display: flex;
+    flex-direction: column; /* Móvil: Apilado verticalmente */
+    gap: 3rem;
+    align-items: center;
+}
+
+.about__profile {
+    text-align: center;
+}
+
+.about__image-placeholder {
+    width: 200px;
+    height: 200px;
+    background-color: var(--color-fondo-secundario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--color-acento);
+}
+
+.about__social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.about__social-link {
+    color: var(--color-texto-alterno);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.about__social-link:hover {
+    color: var(--color-acento);
+}
+
+.about__bio {
+    margin-bottom: 2rem;
+}
+
+.about__skills-title {
+    margin-bottom: 1rem;
+}
+
+.about__skills-list {
+    margin-bottom: 2rem;
+}
+
+.about__skill-item {
+    margin-bottom: 0.5rem;
+}
+
+.about__btn-cv {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-acento);
+    border: 2px solid var(--color-acento);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.about__btn-cv:hover {
+    background-color: var(--color-acento);
+    color: #FFFFFF;
+}
+
+/* =========================================
+   9. SECCIÓN: CONTACTO Y FOOTER
+   ========================================= */
+.contact__text {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact__form {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact__label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.contact__input {
+    padding: 0.8rem;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    font-family: var(--fuente-texto);
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-principal);
+}
+
+.contact__input:focus {
+    outline: none;
+    border-color: var(--color-acento);
+}
+
+.contact__submit-btn {
+    background-color: var(--color-acento);
+    color: #FFFFFF;
+    border: none;
+    padding: 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact__submit-btn:hover {
+    background-color: #20a890; /* Tono más oscuro de verde para el hover */
+}
+
+.contact__direct {
+    text-align: center;
+}
+
+.contact__email-link {
+    color: var(--color-acento);
+    font-weight: 600;
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-fondo-secundario);
+    font-size: 0.9rem;
+}
