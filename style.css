@@ -135,7 +135,7 @@ ul {
     position: relative;
     
     /* Imagen de fondo con capa blanca semitransparente para legibilidad */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95)), url('assets/tu-imagen-fondo.jpg');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95)), url('assets/tu-imagen-fondo.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Opcional: crea un efecto parallax al hacer scroll */
@@ -155,7 +155,7 @@ ul {
 
 .hero__cta {
     background-color: var(--color-acento);
-    color: #FFFFFF; /* Forzamos blanco para garantizar contraste sobre el verde esmeralda */
+    color: var(--color-texto-principal); /* Forzamos blanco para garantizar contraste sobre el verde esmeralda */
     padding: 0.8rem 2rem;
     border-radius: 5px;
     font-weight: 600;
@@ -391,7 +391,7 @@ ul {
 
 .about__btn-cv:hover {
     background-color: var(--color-acento);
-    color: #FFFFFF;
+    color: var(--color-texto-principal);
 }
 
 /* =========================================
@@ -437,7 +437,7 @@ ul {
 
 .contact__submit-btn {
     background-color: var(--color-acento);
-    color: #FFFFFF;
+    color: var(--color-texto-principal);
     border: none;
     padding: 1rem;
     border-radius: 4px;
