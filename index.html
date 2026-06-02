@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diego Olivera | Desarrollador Full Stack</title>
+        
+        <!-- Importación de Google Fonts: Fira Sans (Títulos) y Open Sans (Texto base) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        
+        <!-- Enlace a la hoja de estilos -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!-- Cabecera y Navegación Principal -->
+        <header class="header">
+            <div class="header__logo">Diego Olivera</div>
+            
+            <!-- Botón Menú Hamburguesa (Móvil) -->
+            <button class="header__menu-btn" aria-label="Abrir menú" id="menu-btn">
+                <span class="header__menu-icon">☰</span>
+            </button>
+            
+            <nav class="header__nav" id="nav-menu">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="#inicio" class="header__nav-link">Inicio</a></li>
+                    <li class="header__nav-item"><a href="#proyectos" class="header__nav-link">Proyectos</a></li>
+                    <li class="header__nav-item"><a href="#sobre-mi" class="header__nav-link">Sobre Mí</a></li>
+                    <li class="header__nav-item"><a href="#contacto" class="header__nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            
+            <!-- Sección 1: Inicio (Propuesta de Valor) -->
+            <section id="inicio" class="hero">
+                <h1 class="hero__title">Desarrollador Full Stack</h1>
+                <p class="hero__subtitle">Especializado en la creación de soluciones digitales y aplicaciones web escalables para pymes y comercios.</p>
+                <a href="#proyectos" class="hero__cta">Ver mis proyectos</a>
+                <!-- Indicador de scroll basado en el wireframe -->
+                <div class="hero__scroll-indicator">↓</div>
+            </section>
+
+            <!-- Sección 2: Proyectos -->
+            <section id="proyectos" class="projects">
+                <h2 class="projects__title">Proyectos Destacados</h2>
+                <div class="projects__grid">
+                    
+                    <!-- Tarjeta de Proyecto 1 (Placeholder) -->
+                    <article class="project-card">
+                        <div class="project-card__image-placeholder">Imagen del Proyecto</div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">Título del Proyecto</h3>
+                            <p class="project-card__description">Breve descripción del problema a resolver y la solución implementada.</p>
+                            <div class="project-card__tech">
+                                <span class="project-card__tag">HTML</span>
+                                <span class="project-card__tag">CSS</span>
+                                <span class="project-card__tag">JavaScript</span>
+                            </div>
+                            <div class="project-card__links">
+                                <a href="#" class="project-card__link" target="_blank">Ver Código</a>
+                                <a href="#" class="project-card__link" target="_blank">Ver en Vivo</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Puedes duplicar la etiqueta <article> para agregar más proyectos -->
+
+                </div>
+            </section>
+
+            <!-- Sección 3: Sobre Mí -->
+            <section id="sobre-mi" class="about">
+                <h2 class="about__title">Sobre Mí</h2>
+                
+                <!-- Contenedor preparado para dividir en dos columnas en Escritorio -->
+                <div class="about__container">
+                    <div class="about__profile">
+                        <div class="about__image-placeholder">Foto de Perfil</div>
+                        <div class="about__social">
+                            <a href="https://www.linkedin.com/in/diegoolivera25" target="_blank" class="about__social-link">LinkedIn</a>
+                            <a href="https://github.com/RyzenZ10" target="_blank" class="about__social-link">GitHub</a>
+                            <a href="https://www.instagram.com/olivera_systems/" target="_blank" class="about__social-link">Instagram</a>
+                        </div>
+                    </div>
+                    
+                    <div class="about__info">
+                        <p class="about__bio">Desarrollador Full Stack con un sólido trasfondo en el sector IT. Mi experiencia previa en soporte técnico y atención al cliente me ha dotado de una fuerte capacidad analítica para la resolución de problemas y una excelente comunicación. Actualmente, aplico metodologías ágiles para construir soluciones de software eficientes y centradas en el usuario.</p>
+                        
+                        <h3 class="about__skills-title">Habilidades Técnicas</h3>
+                        <ul class="about__skills-list">
+                            <li class="about__skill-item"><strong>Frontend:</strong> HTML, CSS, JavaScript (Vanilla)</li>
+                            <li class="about__skill-item"><strong>Backend:</strong> C, Python</li>
+                            <li class="about__skill-item"><strong>Bases de Datos:</strong> MySQL, PostgreSQL</li>
+                            <li class="about__skill-item"><strong>Herramientas:</strong> Git, GitHub, VS Code, Postman, Warp</li>
+                            <li class="about__skill-item"><strong>Metodologías:</strong> SCRUM, Notion, Obsidian</li>
+                        </ul>
+                        
+                        <a href="assets/CV_FullStack_Olivera.pdf" download class="about__btn-cv">Descargar CV</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 4: Contacto -->
+            <section id="contacto" class="contact">
+                <h2 class="contact__title">Contacto</h2>
+                <p class="contact__text">¿Tienes un proyecto en mente? Hablemos.</p>
+                
+                <form class="contact__form" action="#" method="POST">
+                    <div class="contact__form-group">
+                        <label for="nombre" class="contact__label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="contact__input" required>
+                    </div>
+                    <div class="contact__form-group">
+                        <label for="email" class="contact__label">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="contact__input" required>
+                    </div>
+                    <div class="contact__form-group">
+                        <label for="mensaje" class="contact__label">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" class="contact__input" required></textarea>
+                    </div>
+                    <button type="submit" class="contact__submit-btn">Enviar Mensaje</button>
+                </form>
+                
+                <div class="contact__direct">
+                    <p>O escríbeme directamente a: <a href="mailto:diegoolivera2001@outlook.com" class="contact__email-link">diegoolivera2001@outlook.com</a></p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="footer">
+            <p class="footer__text">© 2026 Diego Olivera. Todos los derechos reservados.</p>
+        </footer>
+
+        <!-- Enlace al script de interactividad -->
+        <script src="script.js"></script>
+    </body>
+</html>
