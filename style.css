@@ -1,0 +1,53 @@
+/* =========================================
+   1. VARIABLES GLOBALES (Custom Properties)
+   ========================================= */
+:root {
+    /* Paleta de Colores (Regla 60-30-10) */
+    --color-fondo-principal: #FFFFFF;     /* Dominante 60% */
+    --color-fondo-secundario: #E0E0E0;  /* Dominante alterno */
+    --color-texto-principal: #0A1931;   /* Secundario 30% */
+    --color-texto-alterno: #185ADB;     /* Secundario de apoyo */
+    --color-acento: #29C7AC;            /* Acento interactivo 10% */
+
+    /* Tipografías */
+    --fuente-titulos: 'Fira Sans', sans-serif;
+    --fuente-texto: 'Open Sans', sans-serif;
+}
+
+/* =========================================
+   2. RESETEO GLOBAL (CSS Reset)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garantiza que el padding y el borde no aumenten el ancho total del elemento */
+}
+
+/* =========================================
+   3. ESTILOS BASE
+   ========================================= */
+html {
+    /* Permite que los enlaces del menú naveguen suavemente hacia las secciones */
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--color-texto-principal);
+    background-color: var(--color-fondo-principal);
+    line-height: 1.6; /* Mejora la legibilidad en párrafos largos */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-texto-principal);
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Hereda el color del elemento padre por defecto */
+}
+
+ul {
+    list-style: none; /* Elimina las viñetas por defecto de las listas */
+}
