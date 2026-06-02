@@ -124,15 +124,21 @@ ul {
    5. SECCIÓN: INICIO (Hero)
    ========================================= */
 .hero {
-    height: 100vh; /* Ocupa el 100% del alto de la pantalla */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 2rem;
-    margin-top: 60px; /* Compensa el espacio que ocupa el header fijo */
+    margin-top: 60px;
     position: relative;
+    
+    /* Imagen de fondo con capa blanca semitransparente para legibilidad */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95)), url('assets/tu-imagen-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Opcional: crea un efecto parallax al hacer scroll */
 }
 
 .hero__title {
@@ -180,7 +186,7 @@ ul {
    MEDIA QUERIES (Escritorio >= 768px)
    ========================================= */
 @media screen and (min-width: 768px) {
-    /* Header: Pasamos de menú hamburguesa a menú horizontal */
+    /* Header: Menú horizontal */
     .header__menu-btn {
         display: none; 
     }
@@ -201,36 +207,13 @@ ul {
         margin: 0 1rem;
     }
 
-    /* Hero: Aumentamos el tamaño de las fuentes para aprovechar el espacio */
+    /* Hero: Ajuste de tipografía */
     .hero__title {
         font-size: 4rem;
     }
 
     .hero__subtitle {
         font-size: 1.3rem;
-    }
-
-    /* Proyectos: Pasamos a una cuadrícula (Grid) de múltiples columnas */
-    .projects__grid {
-        /* Crea columnas automáticamente según el espacio disponible. Mínimo 300px por tarjeta */
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    }
-
-    /* Sobre Mí: Implementación de la corrección estructural a 2 columnas */
-    .about__container {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-    }
-
-    .about__profile {
-        flex: 0 0 35%; /* La columna de la foto ocupa el 35% del ancho */
-        position: sticky; /* Opcional: Mantiene la foto fija mientras se lee el texto */
-        top: 100px;
-    }
-
-    .about__info {
-        flex: 0 0 60%; /* La columna de texto ocupa el 60% del ancho */
     }
 }
 
@@ -351,16 +334,16 @@ ul {
     text-align: center;
 }
 
-.about__image-placeholder {
+.about__profile-img {
     width: 200px;
     height: 200px;
-    background-color: var(--color-fondo-secundario);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 50%; /* Convierte la imagen en un círculo perfecto */
+    object-fit: cover; /* Evita que la imagen se estire o deforme si no es cuadrada */
+    object-position: center; /* Centra el enfoque en el rostro (ajusta a 'center' si es necesario) */
     margin: 0 auto 1.5rem;
+    display: block;
     border: 4px solid var(--color-acento);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
 }
 
 .about__social {
@@ -481,4 +464,32 @@ ul {
     padding: 2rem;
     background-color: var(--color-fondo-secundario);
     font-size: 0.9rem;
+}
+
+/* =========================================
+   10. MEDIA QUERIES (Escritorio >= 768px)
+   ========================================= */
+@media screen and (min-width: 768px) {
+    /* Proyectos: Pasamos a una cuadrícula (Grid) de múltiples columnas */
+    .projects__grid {
+        /* Crea columnas automáticamente según el espacio disponible. Mínimo 300px por tarjeta */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    }
+
+    /* Sobre Mí: Implementación de la corrección estructural a 2 columnas */
+    .about__container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .about__profile {
+        flex: 0 0 35%; /* La columna de la foto ocupa el 35% del ancho */
+        position: sticky; /* Opcional: Mantiene la foto fija mientras se lee el texto */
+        top: 100px;
+    }
+
+    .about__info {
+        flex: 0 0 60%; /* La columna de texto ocupa el 60% del ancho */
+    }
 }
